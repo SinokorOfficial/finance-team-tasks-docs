@@ -1,0 +1,76 @@
+site_name: 업무 현황 · 개발 문서
+site_description: 자금팀 AX 포털 「업무 현황」 기능의 구조·데이터·배포·운영·인수인계 문서 (공개판)
+site_url: https://sinokorofficial.github.io/finance-team-tasks-docs/
+
+repo_name: finance-team-tasks-docs
+repo_url: https://github.com/SinokorOfficial/finance-team-tasks-docs
+
+docs_dir: docs
+
+# 코드 저장소(ax-fnc)는 비공개입니다. 본 문서는 구조·설계·운영 설명용 공개판으로,
+# 사내망 주소·직원 이름·이메일·실제 업무 내용 등 민감 정보는 포함하지 않습니다.
+
+nav:
+  - 홈: index.md
+  - 개요:
+      - 권한: rbac.md
+      - 자료 원천·결과물: sources.md
+      - 코드 위치·로컬 실행: code.md
+  - 설계:
+      - 데이터 모델: data-model.md
+      - API: api.md
+      - 반복 규칙 생성: generate.md
+      - 동시성·충돌: concurrency.md
+      - 실시간(SSE): sse.md
+      - 화면 모듈: frontend.md
+  - 운영·인수인계:
+      - 배포·운영: deployment.md
+      - 시험: testing.md
+      - 알려진 한계·2단계: limits.md
+  - 변경 이력: changelog.md
+
+theme:
+  name: material
+  language: ko
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/weather-night
+        name: 다크 모드로
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/weather-sunny
+        name: 라이트 모드로
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.details
